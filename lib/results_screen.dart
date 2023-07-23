@@ -11,7 +11,7 @@ class ResultsScreen extends StatelessWidget {
 
   final List<String> chosenAnswers;
 
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     List<Map<String, Object>> summaryData = [];
 
     for (var i = 0; i < questions.length; i++) {
@@ -28,7 +28,6 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
     final numberTotalQuestions = questions.length;
     final numCorrectQuestions = summaryData.where((element) {
       return element['user_answer'] == element['correct_answer'];
@@ -44,7 +43,7 @@ class ResultsScreen extends StatelessWidget {
             Text(
               "You answered $numCorrectQuestions out of $numberTotalQuestions questions correctly!",
               style: GoogleFonts.lato(
-                color: Color.fromARGB(255, 223, 142, 255),
+                color: const Color.fromARGB(255, 223, 142, 255),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
